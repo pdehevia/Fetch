@@ -63,8 +63,8 @@ android {
 dependencies {
 
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    kapt 'androidx.room:room-compiler:2.0.0'
-    api 'androidx.room:room-runtime:2.0.0'
+    implementation "androidx.room:room-runtime:2.0.0"
+    annotationProcessor "androidx.room:room-compiler:2.0.0"
     api project(':fetch2core')
 
     testImplementation "junit:junit:$junit_version"
