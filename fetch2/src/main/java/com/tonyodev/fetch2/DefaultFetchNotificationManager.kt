@@ -3,6 +3,7 @@ package com.tonyodev.fetch2
 import                                                                                                                                                                                                                                           android.annotation.SuppressLint
 import android.app.*
 import android.content.BroadcastReceiver
+import android.content.Context.RECEIVER_NOT_EXPORTED
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
@@ -53,7 +54,12 @@ abstract class DefaultFetchNotificationManager(context: Context) : FetchNotifica
     }
 
     override fun registerBroadcastReceiver() {
-        context.registerReceiver(priorityBackoffResetReceiver, IntentFilter(ACTION_QUEUE_BACKOFF_RESET), if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) RECEIVER_NOT_EXPORTED else 0)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.registerReceiver(broadcastReceiver, IntentFilter(notificationManagerAction), if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) RECEIVER_NOT_EXPORTED else 0)
+        } else {
+            context.registerReceiver(broadcastReceiver, IntentFilter(notificationManagerAction))
+        }
+
     }
 
     override fun unregisterBroadcastReceiver() {
