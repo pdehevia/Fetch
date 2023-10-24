@@ -44,8 +44,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     sourceSets {
@@ -58,8 +58,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.0'
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    kapt 'androidx.room:room-compiler:2.0.0'
-    api 'androidx.room:room-runtime:2.0.0'
+    implementation "androidx.room:room-runtime:2.0.0"
 
     api project(':fetch2core')
 
