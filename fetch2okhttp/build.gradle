@@ -24,8 +24,6 @@ android {
     defaultConfig {
         minSdkVersion library_min_version
         targetSdkVersion library_target_version
-        versionCode library_version_code
-        versionName library_version
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
@@ -48,14 +46,15 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_19
+        targetCompatibility JavaVersion.VERSION_19
     }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
+    namespace 'com.tonyodev.fetch2okhttp'
 }
 
 dependencies {
@@ -67,8 +66,11 @@ dependencies {
     api project(':fetch2core')
 
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    testImplementation 'androidx.test:core:1.5.0'
+    testImplementation 'androidx.test.ext:truth:1.5.0'
+    testImplementation 'com.google.truth:truth:0.44'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
 //publish {
