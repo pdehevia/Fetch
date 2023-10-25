@@ -18,7 +18,7 @@ class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
         // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
+        val appContext = InstrumentationRegistry.getInstrumentation().getTargetContext()
         assertEquals("com.tonyodev.fetchapp", appContext.packageName)
     }
 }
