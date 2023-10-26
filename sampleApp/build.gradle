@@ -28,6 +28,7 @@ android {
         versionCode 8
         versionName "2.6"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -58,6 +59,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid2_version"
     implementation "io.reactivex.rxjava2:rxjava:$rxJava2_version"
     implementation "com.jakewharton.timber:timber:$timber_version"
+    implementation "androidx.multidex:multidex:2.0.1"
 
     implementation project(':fetch2okhttp')
     implementation project(':fetch2rx')
